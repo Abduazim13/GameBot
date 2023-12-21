@@ -8,4 +8,4 @@ class RegisterState(StatesGroup):
 
 class GameState(StatesGroup):
     game_name = State()
-    company = State
+    company = State()

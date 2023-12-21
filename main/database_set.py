@@ -2,7 +2,9 @@ import databases
 import sqlalchemy
 from sqlalchemy.ext.declarative import declarative_base
 
-DATABASE_URL = f"postgresql://postgres:2318@localhost:5432/gamebotdb"
+from data.config import DATABASE_PRO
+
+DATABASE_URL = DATABASE_PRO
 
 database = databases.Database(DATABASE_URL)
 
