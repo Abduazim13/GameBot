@@ -36,7 +36,7 @@ games_menu = ReplyKeyboardMarkup(
         ],
         [
             KeyboardButton(text="Fortnite"),
-            KeyboardButton(text="Minecraft: Java & Bedrock Edition")
+            KeyboardButton(text="Chess.com")
         ],
         [
             KeyboardButton(text="Discord"),

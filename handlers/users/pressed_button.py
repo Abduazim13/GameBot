@@ -91,7 +91,21 @@ async def game_company_handler(call: types.CallbackQuery, state: FSMContext):
         elif data.get('game_name') == "Hill Climb" and data.get('company') == 'microsoft':
             text = "You can download this game by link:\n\nhttps://www.microsoft.com/en-us/p/hill-climb-racing/9wzdncrdcwk8"
 
-        await call.message.answer(text=text, reply_markup=game_menu_back)
+        if data.get('game_name') == "Fortnite" and data.get('company') == 'play_market':
+            text = "You can download this game by link:\n\nhttps://play.google.com/store/apps/details?id=battle.royale.wallpapers.hd&hl=en&gl=US"
+        elif data.get('game_name') == "Fortnite" and data.get('company') == 'app_store':
+            text = "You can download this game by link:\n\nhttps://apps.apple.com/us/app/companion-for-fortnite/id1267999556"
+        elif data.get('game_name') == "Fortnite" and data.get('company') == 'microsoft':
+            text = "You can download this game by link:\n\nhttps://apps.microsoft.com/detail/BT5P2X999VH2?hl=en-US&gl=US"
 
+        if data.get('game_name') == "Chess.com" and data.get('company') == 'play_market':
+            text = "You can download this game by link:\n\nhttps://play.google.com/store/apps/details?id=com.chess&hl=en_US"
+        elif data.get('game_name') == "Chess.com" and data.get('company') == 'app_store':
+            text = "You can download this game by link:\n\nhttps://apps.apple.com/us/app/chess-play-learn/id329218549"
+
+        elif data.get('game_name') == "Chess.com" and data.get('company') == 'microsoft':
+            text = "You can download this game by link:\n\nhttps://www.microsoft.com/en-us/p/chess-for-windows/9nblggh5jfzq?activetab=pivot:overviewtab"
+
+        await call.message.answer(text=text, reply_markup=game_menu_back)
     except Exception as exc:
         print(exc)
