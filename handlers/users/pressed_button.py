@@ -104,7 +104,7 @@ async def game_company_handler(call: types.CallbackQuery, state: FSMContext):
             text = "You can download this game by link:\n\nhttps://apps.apple.com/us/app/chess-play-learn/id329218549"
         elif data.get('game_name') == "Chess.com" and data.get('company') == 'microsoft':
             text = "You can download this game by link:\n\nhttps://www.microsoft.com/en-us/p/chess-for-windows/9nblggh5jfzq?activetab=pivot:overviewtab"
-
+        await call.message.delete()
         await call.message.answer(text=text, reply_markup=game_menu_back)
     except Exception as exc:
         print(exc)

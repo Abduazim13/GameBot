@@ -19,6 +19,7 @@ class CheckSub(BaseMiddleware):
                 checkers = await checker(user_id=user_id, channel_id=channel[0])
 
                 if not checkers:
+                    await update.callback_query.message.delete()
                     text = "Subscribe to the channel to use the bot.\nПодпишитесь на канал, чтобы использовать бота.\nBotdan foydalanish uchun kanalga a'zo bo'ling."
                     await update.callback_query.message.answer(text=text, reply_markup=subscribe)
                     raise CancelHandler()
@@ -26,6 +27,7 @@ class CheckSub(BaseMiddleware):
         checkers = await checker(user_id=user_id, channel_id=channel[0])
 
         if not checkers:
+            await update.message.delete()
             text = "Subscribe to the channel to use the bot.\nПодпишитесь на канал, чтобы использовать бота.\nBotdan foydalanish uchun kanalga a'zo bo'ling."
             await update.message.answer(text=text, reply_markup=subscribe)
             raise CancelHandler()
