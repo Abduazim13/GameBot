@@ -55,7 +55,7 @@ async def games_handler(message: types.Message, state: FSMContext):
         await state.update_data(game_name='Chess.com')
         text = "Choose your company\n\nВыберите компанию\n\nKOmpaniyani tanlang"
         photo = InputFile(path_or_bytesio='./photos/Chess.jpg')
-        await message.answer_photo(caption=text, reply_markup=only_windows, photo=photo)
+        await message.answer_photo(caption=text, reply_markup=three_win_app_android, photo=photo)
         await message.answer(text="If you going to go back press button 👇", reply_markup=game_menu_back)
         await GameState.company.set()
     elif message.text == "Discord":

@@ -9,14 +9,15 @@ from utils.checker import checker
 from sql.select import get_user
 from keyboards.default.user import *
 from sql.insert import insert_user
+from data.config import channel
 
 
 @dp.message_handler(CommandStart())
 async def start_handler(message: types.Message):
-    checker_user = await checker(user_id=message.chat.id)
+    checker_user = await checker(user_id=message.chat.id, channel_id=channel[0])
     if checker_user:
         if get_user(message.chat.id):
-            text = "🇺🇸 Hello in Our Bot\n🇷🇺 Привет на нашет боте\n🇺🇿 Bizning botimizga xush kelibsiz\n\nSubscribe To my Channel:\nhttps://t.me/carsinvideo"
+            text = "🇺🇸 Hello in Our Bot\n🇷🇺 Привет на нашет боте\n🇺🇿 Bizning botimizga xush kelibsiz"
             await message.answer(text=text, reply_markup=games_menu)
         else:
             text = "🇺🇸 Hello world.\nWrite your Full Name\n\n🇷🇺 Привет.\nНапишите полное имя\n\n🇺🇿 Salom.\nIsmingizni kiriting"
@@ -29,7 +30,7 @@ async def start_handler(message: types.Message):
 
 @dp.callback_query_handler(text='check')
 async def check_again_handler(call: types.CallbackQuery):
-    checker_user = await checker(user_id=call.message.chat.id)
+    checker_user = await checker(user_id=call.message.chat.id, channel_id=channel[0])
     if checker_user:
         await call.message.delete()
         await call.answer('You are successfully subscribed ✅')
