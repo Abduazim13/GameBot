@@ -14,18 +14,13 @@ from data.config import channel
 
 @dp.message_handler(CommandStart())
 async def start_handler(message: types.Message):
-    checker_user = await checker(user_id=message.chat.id, channel_id=channel[0])
-    if checker_user:
-        if get_user(message.chat.id):
-            text = "🇺🇸 Hello in Our Bot\n🇷🇺 Привет на нашет боте\n🇺🇿 Bizning botimizga xush kelibsiz"
-            await message.answer(text=text, reply_markup=games_menu)
-        else:
-            text = "🇺🇸 Hello world.\nWrite your Full Name\n\n🇷🇺 Привет.\nНапишите полное имя\n\n🇺🇿 Salom.\nIsmingizni kiriting"
-            await message.answer(text=text, reply_markup=ReplyKeyboardRemove())
-            await RegisterState.full_name.set()
+    if get_user(message.chat.id):
+        text = "🇺🇸 Hello in Our Bot\n🇷🇺 Привет на нашет боте\n🇺🇿 Bizning botimizga xush kelibsiz"
+        await message.answer(text=text, reply_markup=games_menu)
     else:
-        text = f"Subscribe to the channel to use the bot.\nПодпишитесь на канал, чтобы использовать бота.\nBotdan foydalanish uchun kanalga a'zo bo'ling."
-        await message.answer(text=text, reply_markup=subscribe)
+        text = "🇺🇸 Hello world.\nWrite your Full Name\n\n🇷🇺 Привет.\nНапишите полное имя\n\n🇺🇿 Salom.\nIsmingizni kiriting"
+        await message.answer(text=text, reply_markup=ReplyKeyboardRemove())
+        await RegisterState.full_name.set()
 
 
 @dp.callback_query_handler(text='check')
