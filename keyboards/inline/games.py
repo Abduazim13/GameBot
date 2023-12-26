@@ -42,6 +42,14 @@ two_android_windows = InlineKeyboardMarkup(
     ]
 )
 
+all_apps = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="All", callback_data='all')
+        ]
+    ]
+)
+
 two_android_app = InlineKeyboardMarkup(
     inline_keyboard=[
         [

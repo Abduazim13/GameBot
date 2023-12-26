@@ -41,13 +41,8 @@ async def game_company_handler(call: types.CallbackQuery, state: FSMContext):
         elif data.get('game_name') == "Minecraft" and data.get('company') == 'microsoft':
             text = "You can download this game by link:\n\nhttps://www.microsoft.com/en-hu/p/minecraft-for-windows/9nblggh2jhxj?activetab=pivot:overviewtab"
 
-        if data.get('game_name') == "Counter-Strike 1.6":
+        if data.get('game_name') == "Counter-Strike 1.6" and data.get('company') == 'all':
             text = "You can download this game by link:\n\nhttps://all-cs.ru/?source=gads&creative=650918691821&key=&gclid=Cj0KCQiAm4WsBhCiARIsAEJIEzX8rzoTbKzr5GOm1S-Xx5lrzbOjsFSoHAxnGb7CnFu71LwtKJCKfmYaAtdgEALw_wcB"
-
-        if data.get('game_name') == "Bow master" and data.get('company') == 'play_market':
-            text = "You can download this game by link:\n\nhttps://play.google.com/store/apps/details?id=com.playgendary.bowmasters&hl=en&gl=US"
-        elif data.get('game_name') == "Bow master" and data.get('company') == 'app_store':
-            text = "You can download this game by link:\n\nhttps://apps.apple.com/us/app/bowmasters-multiplayer-game/id1118431695"
 
         if data.get('game_name') == "Bow master" and data.get('company') == 'play_market':
             text = "You can download this game by link:\n\nhttps://play.google.com/store/apps/details?id=com.playgendary.bowmasters&hl=en&gl=US"
@@ -64,7 +59,7 @@ async def game_company_handler(call: types.CallbackQuery, state: FSMContext):
         elif data.get('game_name') == "Car parking" and data.get('company') == 'microsoft':
             text = "You can download this game by link:\n\nhttps://www.microsoft.com/en-us/p/car-parking/9ntvt4czgpc4?activetab=pivot:overviewtab"
 
-        if data.get('game_name') == "TLauncher":
+        if data.get('game_name') == "TLauncher" and data.get('company') == "all":
             text = "You can download this game by link:\n\nhttps://tlauncher.org/en/"
 
         if data.get('game_name') == "Among us" and data.get('company') == 'play_market':
@@ -81,7 +76,7 @@ async def game_company_handler(call: types.CallbackQuery, state: FSMContext):
         elif data.get('game_name') == "Roblox" and data.get('company') == 'microsoft':
             text = "You can download this game by link:\n\nhttps://www.microsoft.com/en-id/p/roblox/9nblgggzm6wm"
 
-        if data.get('game_name') == "Discord":
+        if data.get('game_name') == "Discord" and data.get('company') == "all":
             text = "You can download this game by link:\n\nhttps://discord.com/"
 
         if data.get('game_name') == "Hill Climb" and data.get('company') == 'play_market':

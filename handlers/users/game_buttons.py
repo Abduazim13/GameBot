@@ -61,8 +61,8 @@ async def games_handler(message: types.Message, state: FSMContext):
     elif message.text == "Discord":
         await state.update_data(game_name='Discord')
         text = "Choose your company\n\nВыберите компанию\n\nKOmpaniyani tanlang"
-        photo = InputFile(path_or_bytesio='./photos/disord.jpg')
-        await message.answer_photo(caption=text, reply_markup=only_windows, photo=photo)
+        photo = InputFile(path_or_bytesio='./photos/disord.png')
+        await message.answer_photo(caption=text, reply_markup=all_apps, photo=photo)
         await message.answer(text="If you going to go back press button 👇", reply_markup=game_menu_back)
         await GameState.company.set()
     elif message.text == "Hill Climb":
@@ -97,7 +97,7 @@ async def games_handler(message: types.Message, state: FSMContext):
         await state.update_data(game_name='TLauncher')
         text = "Choose your company\n\nВыберите компанию\n\nKompaniyani tanlang"
         photo = InputFile(path_or_bytesio='./photos/TL.jpg')
-        await message.answer_photo(caption=text, reply_markup=alL_Company, photo=photo)
+        await message.answer_photo(caption=text, reply_markup=all_apps, photo=photo)
         await message.answer(text="If you going to go back press button 👇", reply_markup=game_menu_back)
         await GameState.company.set()
     elif message.text == "Car parking":
@@ -126,7 +126,7 @@ async def games_handler(message: types.Message, state: FSMContext):
         await state.update_data(game_name='Counter-Strike 1.6')
         text = "Choose your company\n\nВыберите компанию\n\nKOmpaniyani tanlang"
         photo = InputFile(path_or_bytesio='./photos/counter.jpg')
-        await message.answer_photo(caption=text, reply_markup=two_win_mac, photo=photo)
+        await message.answer_photo(caption=text, reply_markup=all_apps, photo=photo)
         await message.answer(text="If you going to go back press button 👇", reply_markup=game_menu_back)
         await GameState.company.set()
     else:
