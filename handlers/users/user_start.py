@@ -12,9 +12,10 @@ from sql.insert import insert_user
 from data.config import channel
 
 
-@dp.message_handler(CommandStart())
-async def start_handler(message: types.Message):
+@dp.message_handler(CommandStart(), state="*")
+async def start_handler(message: types.Message, state: FSMContext):
     if get_user(message.chat.id):
+        await state.finish()
         text = "🇺🇸 Hello in Our Bot\n🇷🇺 Привет на нашет боте\n🇺🇿 Bizning botimizga xush kelibsiz"
         await message.answer(text=text, reply_markup=games_menu)
     else:
@@ -59,3 +60,4 @@ async def phone_number_handler(message: types.Message, state: FSMContext):
     else:
         text = "Bot has problems\nУ бота есть проблемы\nBotda muommo bor"
     await message.answer(text=text, reply_markup=games_menu)
+    await state.finish()
